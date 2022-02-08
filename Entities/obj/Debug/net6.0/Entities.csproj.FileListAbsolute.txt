@@ -1,0 +1,12 @@
+C:\Bo\UWS\Hons Project\prototype\Entities\bin\Debug\net6.0\Entities.deps.json
+C:\Bo\UWS\Hons Project\prototype\Entities\bin\Debug\net6.0\Entities.dll
+C:\Bo\UWS\Hons Project\prototype\Entities\bin\Debug\net6.0\ref\Entities.dll
+C:\Bo\UWS\Hons Project\prototype\Entities\bin\Debug\net6.0\Entities.pdb
+C:\Bo\UWS\Hons Project\prototype\Entities\obj\Debug\net6.0\Entities.csproj.AssemblyReference.cache
+C:\Bo\UWS\Hons Project\prototype\Entities\obj\Debug\net6.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bo\UWS\Hons Project\prototype\Entities\obj\Debug\net6.0\Entities.AssemblyInfoInputs.cache
+C:\Bo\UWS\Hons Project\prototype\Entities\obj\Debug\net6.0\Entities.AssemblyInfo.cs
+C:\Bo\UWS\Hons Project\prototype\Entities\obj\Debug\net6.0\Entities.csproj.CoreCompileInputs.cache
+C:\Bo\UWS\Hons Project\prototype\Entities\obj\Debug\net6.0\Entities.dll
+C:\Bo\UWS\Hons Project\prototype\Entities\obj\Debug\net6.0\ref\Entities.dll
+C:\Bo\UWS\Hons Project\prototype\Entities\obj\Debug\net6.0\Entities.pdb
