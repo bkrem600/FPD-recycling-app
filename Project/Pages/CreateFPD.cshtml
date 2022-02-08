@@ -1,0 +1,107 @@
+@page
+@model Project.Pages.CreateFPDModel
+@{
+    ViewData["Title"] = "Add New FPD";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@section scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add FPD</title>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="IndexFPDs">View FPDs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="CreateFPD">Add FPD</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h4>Add new FPD</h4>
+<div class="row">
+    <form method="POST">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="@Model.FPD.CategoryID" class="control-label">Category</label>
+            <select asp-for="@Model.FPD.CategoryID" class="form-control" asp-items="@Model.CategoryNameSL"
+            data-val-required="The category field is required." data-val="true">
+                <option value="">-- Select Category Name --</option>
+            </select>
+            <span asp-validation-for="@Model.FPD.CategoryID" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FPD.Size" class="control-label">Enter a size for a new FPD:&nbsp;</label>
+            <input asp-for="FPD.Size" type="number" class="form-control" />
+            <span asp-validation-for="FPD.Size" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.FPD.Make" class="control-label">Enter Make:&nbsp;</label>
+            <input asp-for="@Model.FPD.Make" class="form-control" 
+            data-val-required="The make field is required."
+                data-val-maxlength-max="50"
+                data-val-maxlength="The field make must be a string or array type with a maximum length of '50'."
+                data-val="true" />
+            <span asp-validation-for="@Model.FPD.Make" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.FPD.ModelCode" class="control-label">Enter Model Code:&nbsp;</label>
+            <input asp-for="@Model.FPD.ModelCode" type="text" class="form-control" 
+            data-val-required="The model code field is required."  
+            data-val="true" />
+            <span asp-validation-for="@Model.FPD.ModelCode" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FPD.Year" class="control-label">Enter Year of Manufacture:&nbsp;</label>
+            <input asp-for="FPD.Year" type="number" class="form-control" />
+            <span asp-validation-for="FPD.Year" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FPD.Origin" class="control-label">Enter Country of Origin:&nbsp;</label>
+            <input asp-for="FPD.Origin" type="text" class="form-control" />
+            <span asp-validation-for="FPD.Origin" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FPD.FrontCasingSorting" class="control-label">Front Casing Sorting</label>
+            <select asp-for="FPD.FrontCasingSorting" class="form-control">
+                <option value="">-- Select Front Casing Sorting --</option>
+                <option value="RECYCLE">RECYCLE</option>
+                <option value="POPs">POPs</option>
+                <option value="POP&HAZ">POP&HAZ</option>
+            </select>
+            <span asp-validation-for="FPD.FrontCasingSorting" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FPD.BackCasingSorting" class="control-label">Back Casing Sorting</label>
+            <select asp-for="FPD.BackCasingSorting" class="form-control">
+                <option value="">-- Select Back Casing Sorting --</option>
+                <option value="RECYCLE">RECYCLE</option>
+                <option value="POPs">POPs</option>
+                <option value="POP&HAZ">POP&HAZ</option>
+            </select>
+            <span asp-validation-for="FPD.BackCasingSorting" class="text-danger"></span>
+        </div>
+        <br />
+        <div><input class="btn btn-primary" type="submit" /></div>
+        <br />
+        <div>
+            <a asp-page="IndexFPDs">Back to List</a>
+        </div>
+    </form>
+</div>
+
+</html>

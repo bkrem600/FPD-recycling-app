@@ -1,0 +1,61 @@
+@page
+@model Project.Pages.ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Error</title>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="IndexFPDs">View FPDs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="CreateFPD">Add FPD</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+<h3 class="text-danger">Model code already exists.</h3>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+@if (Model.ShowReferrer)
+{
+    <h3>Referrer</h3>
+    <p>
+        <a href="@Model.Referrer">@Model.Referrer</a>
+    </p>
+}
+
+@if (@Model.ShowExceptionMessage)
+{
+    <h3>Exception Message</h3>
+    <p>
+        @Model.ExceptionMessage
+    </p>
+}
+<div>
+    <a asp-page="IndexFPDs">Back to List</a>
+</div>
+
+</html>

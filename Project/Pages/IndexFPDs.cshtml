@@ -1,0 +1,93 @@
+@page
+@model Project.Pages.FPDsModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+  ViewData["Title"] = "FPDs";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>FPDs</title>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Index">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="IndexFPDs">View FPDs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="CreateFPD">Add FPD</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<form asp-page="IndexFPDs" method="get">
+  <div class="form-actions no-color">
+    <p>
+      Find by FPD make, model code, origin or casing sorting: <br />
+      <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+      <input type="submit" value="Search" class="btn btn-primary" /> |
+      <a asp-page="IndexFPDs">Back to full List</a>
+    </p>
+  </div>
+</form>
+<h2 class="display-2">FPDs</h2>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><a asp-page="IndexFPDs" asp-route-sortOrder="@Model.IdSort">
+          @Html.DisplayNameFor(model => model.FPDs[0].ID)
+        </a></th>
+        <th><a asp-page="IndexFPDs" asp-route-sortOrder="@Model.CategorySort">Category</a></th>
+        <th><a asp-page="IndexFPDs" asp-route-sortOrder="@Model.SizeSort">
+            @Html.DisplayNameFor(model => model.FPDs[0].Size)</a>
+        </th>
+        <th><a asp-page="IndexFPDs" asp-route-sortOrder="@Model.MakeSort">
+          @Html.DisplayNameFor(model => model.FPDs[0].Make)</a>
+          </th>
+        <th><a asp-page="IndexFPDs" asp-route-sortOrder="@Model.ModelCodeSort">Model Code</a></th>
+        <th><a asp-page="IndexFPDs" asp-route-sortOrder="@Model.YearSort">
+          @Html.DisplayNameFor(model => model.FPDs[0].Year)</a>
+          </th>
+        <th><a asp-page="IndexFPDs" asp-route-sortOrder="@Model.OriginSort">
+          @Html.DisplayNameFor(model => model.FPDs[0].Origin)</a>
+          </th>
+        <th><a asp-page="IndexFPDs" asp-route-sortOrder="@Model.FrontCasingSortingSort">
+          Front Casing Sorting</a></th>
+        <th><a asp-page="IndexFPDs" asp-route-sortOrder="@Model.BackCasingSortingSort">
+          Back Casing Sorting</a></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model.FPDs)
+      {
+        <tr>
+          <td>@item.ID</td>
+          <td>@item.Category.CategoryName</td>
+          <td>@item.Size</td>
+          <td>@item.Make</td>
+          <td>@item.ModelCode</td>
+          <td>@item.Year</td>
+          <td>@item.Origin</td>
+          <td>@item.FrontCasingSorting</td>
+          <td>@item.BackCasingSorting</td>
+          <td><a asp-page="UpdateFPD" asp-route-ID="@item.ID">Update</a></td>
+          <td><a asp-page="DeleteFPD" asp-route-ID="@item.ID"
+            onclick="return confirm('Are you sure? You will be redirected to another page.')">Delete</a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+</html>
